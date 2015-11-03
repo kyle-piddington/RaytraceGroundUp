@@ -40,7 +40,7 @@ ShadeRec::ShadeRec(const ShadeRec& sr)
 
 
 
-		
-		
-						
-		
+
+
+
+
