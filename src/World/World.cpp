@@ -3,9 +3,9 @@
 #include "Utilities/Point3d.h"
 #include "Utilities/Normal.h"
 #include "Utilities/Ray.h"
+#include "UserInterface/RenderInterface.h"
 #include "World/World.h"
 #include "stb/stb_image_write.h"
-
 #include "Build/BuildRedSphere.cpp"
 
 
@@ -14,10 +14,15 @@ World::World()
 
 }
 
+
 void World::display_pixel(const int row,  const int col,const RGBColor & color) const
 {
-   paintArea.setPixel(row,co,color.r,color.b,color.g);
-     
+   paintArea->set_pixel(row,col,color.r * 255,color.b * 255,color.g * 255);
+}
+
+void World::open_window(const int vRes, const int hRes) const
+{
+   paintArea->prepare(vRes, hRes);
 }
 
 void World::render_scene(void) const
@@ -26,9 +31,9 @@ void World::render_scene(void) const
    Ray ray;
    double zw      = 100.0;
    double x, y;
-   open_window(vp.hRes, vp.vRes);
-
+   open_window(vp.vRes, vp.hRes);
    //Do the main ray trace!
+   ray.d = Vector3D(0,0,-1);
    for(int r = 0; r < vp.vRes; r++)
    {
       for(int c = 0; c <= vp.hRes; c++)

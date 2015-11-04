@@ -1,8 +1,8 @@
 file (GLOB USERINTERFACE_SOURCES
       "UserInterface/*.cpp")
 
-include_directories (${PROJECT_SOURCE_DIR}/lib)
-include_directories ("${PROJECT_SOURCE_DIR}/include")
+include_directories (${PROJECT_SOURCE_DIR}/libs)
+include_directories (${PROJECT_SOURCE_DIR}/include)
 
 
 add_executable(raytracer main.cpp ${USERINTERFACE_SOURCES})

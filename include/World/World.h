@@ -14,8 +14,6 @@ class RenderInterface;
 
 class World{
 private:
-  float * image;
-  std::shared_ptr<char> imageToByteArray();
 
 
 public:
@@ -34,7 +32,10 @@ public:
     */
    void render_scene() const;
 
-   
+   /**
+    * Prepare the renderer to display in image
+    */
+   void open_window(const int vRes, const int hRes) const;
    /**
     * Write pixel_color to the position row/col
     * @param row         the pixel row
