@@ -12,7 +12,7 @@ public:
    void set_pixel_size(float pxSize);
 
    float gamma; //Monitor gamma factor;
-   float inv_gamma // One over gamma;
+   float inv_gamma; // One over gamma;
    void set_gamma(float gamma);
 };
 #endif

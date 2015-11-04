@@ -1,7 +1,11 @@
 #ifndef __TRACER_H__
 #define __TRACER_H__
-#include "World/World.h"
+
 #include "Utilities/RGBColor.h"
+#include "Utilities/Ray.h"
+
+class World;
+
 class Tracer
 {
 public:
