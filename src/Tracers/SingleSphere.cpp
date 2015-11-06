@@ -21,7 +21,7 @@ RGBColor SingleSphere::trace_ray(const Ray & ray) const
    double t;
 
    if(world_ptr->sphere.hit(ray,t,sr))
-      return red;
+      return red *  std::max(std::min(1.0,((sr.local_hit_point.z)/80.0f)),0.0);
    else
       return black;
 }

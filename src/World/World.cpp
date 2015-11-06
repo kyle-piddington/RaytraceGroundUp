@@ -38,10 +38,17 @@ void World::render_scene(void) const
    {
       for(int c = 0; c <= vp.hRes; c++)
       {
-         x  = vp.s * (c - 0.5 * (vp.hRes - 1.0)); // Get the X position in the world 
-         y  = vp.s * (r - 0.5 * (vp.vRes - 1.0));
-         ray.o = Point3D(x,y,zw);
-         pixel_color = tracer_ptr->trace_ray(ray);
+         pixel_color = black;
+         for(int j = 0; j < vp.get_num_samples(); j++)
+         {
+            sp = vp.sampler_ptr->sample_unit_square();
+            x  = vp.s * (c - 0.5 * (vp.hRes - 1.0) + sp.x); // Get the X position in the world 
+            y  = vp.s * (r - 0.5 * (vp.vRes - 1.0) + sp.y);
+            ray.o = Point3D(x,y,zw);
+            pixel_color += tracer_ptr->trace_ray(ray);
+
+         }
+         pixel_color /= vp.get_num_samples();
          display_pixel(r,c,pixel_color);
       }
    }
