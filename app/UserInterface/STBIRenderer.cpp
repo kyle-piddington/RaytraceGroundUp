@@ -31,7 +31,8 @@ void STBIRenderer::prepare(int width, int height)
 void STBIRenderer::export_image(std::string filename)
 {
    const char * fname = filename.c_str();
-   stbi_write_png(fname, width, height, 3, pixels, width*3);
+   stbi_write_tga(fname, width, height, 3, pixels);
+
 }
 
 

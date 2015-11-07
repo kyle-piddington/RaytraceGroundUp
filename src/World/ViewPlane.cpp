@@ -1,5 +1,18 @@
 #include "World/ViewPlane.h"
+#include <iostream>
+ViewPlane::ViewPlane() :
+sampler_ptr(nullptr)
+{
 
+}
+ViewPlane::~ViewPlane()
+{
+   if(sampler_ptr != nullptr)
+   {
+      delete sampler_ptr;
+      sampler_ptr = nullptr;
+   }
+}
 void ViewPlane::set_hRes(int hRes)
 {
    this->hRes = hRes;
@@ -20,18 +33,23 @@ void ViewPlane::set_gamma(float gamma)
    this->inv_gamma = 1.0/gamma;
 }
 
-void ViewPlane::get_num_samples()
+int ViewPlane::get_num_samples() const
 {
-   return num_samples;
+   return sampler_ptr->get_num_samples();
 }
 
-void set_sampler(Sampler * sp)
+void ViewPlane::set_sampler(Sampler * sp)
 {
-   if(sampler_ptr)
+   if(sampler_ptr != nullptr)
    {
       delete sampler_ptr;
       sampler_ptr = nullptr;
    }
    num_samples = sp->get_num_samples();
    sampler_ptr = sp;
+}
+
+Sampler * ViewPlane::get_sampler_ptr() const
+{
+   return sampler_ptr;
 }

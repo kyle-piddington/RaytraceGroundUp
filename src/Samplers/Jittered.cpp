@@ -1,5 +1,6 @@
 #include "Samplers/Jittered.h"
-
+#include "Utilities/Maths.h"
+#include <math.h>
 Jittered::Jittered(int num_samples):
    Sampler(num_samples)
 {

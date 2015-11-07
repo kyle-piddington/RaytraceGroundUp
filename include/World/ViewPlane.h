@@ -3,6 +3,8 @@
 #include "Samplers/Sampler.h"
 class ViewPlane {
 public:
+   ViewPlane();
+   ~ViewPlane();
    int hRes; //Horizontal image resolution
    void set_hRes(int hRes);
 
@@ -24,10 +26,11 @@ public:
    float inv_gamma; // One over gamma;
    void set_gamma(float gamma);
 
-   int get_num_samples();
+   int get_num_samples() const;
+   Sampler * get_sampler_ptr() const;
 
 private:
-   Sampler * sampler_ptr
+   Sampler * sampler_ptr;
    int num_samples;
 
 
