@@ -16,6 +16,7 @@ Point2D Sampler::sample_unit_square()
 {
    if(!initializedSamples)
    {
+      samples.resize(num_samples*num_sets);
       generate_samples();
       initializedSamples = true;
    }

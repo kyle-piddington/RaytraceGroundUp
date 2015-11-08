@@ -14,6 +14,7 @@ Jittered::~Jittered()
 
 void Jittered::generate_samples()
 {
+
    int n = (int) sqrt(num_samples);
 
    for(int p = 0; p < num_sets; p++)
