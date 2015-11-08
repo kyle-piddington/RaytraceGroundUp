@@ -10,10 +10,12 @@ STBIRenderer::STBIRenderer(World * world):
 }
 STBIRenderer::~STBIRenderer()
 {
-   delete pixels;
+   if(pixels != nullptr)
+      delete pixels;
 }
 void STBIRenderer::set_pixel(int x, int y, int r, int g, int b)
 {
+   assert(x < this->width && y < this->height && x >= 0 && y >= 0);
    pixels[3*(y*width + x)    ] = r;
    pixels[3*(y*width + x) + 1] = g;
    pixels[3*(y*width + x) + 2] = b;
@@ -31,7 +33,7 @@ void STBIRenderer::prepare(int width, int height)
 void STBIRenderer::export_image(std::string filename)
 {
    const char * fname = filename.c_str();
-   stbi_write_tga(fname, width, height, 3, pixels);
+   stbi_write_png(fname, width, height, 3, pixels, width*3);
 
 }
 

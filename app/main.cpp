@@ -5,7 +5,9 @@
 #include "World/World.h"
 #include "UserInterface/STBIRenderer.h"
 #include "Samplers/Regular.h"
+#include "Samplers/NRooks.h"
 #include "Samplers/Jittered.h"
+#include "Samplers/MultiJittered.h"
 #include <string.h>
 #include <iostream>
 int main(int argc, char * argv[])
@@ -14,12 +16,8 @@ int main(int argc, char * argv[])
    STBIRenderer renderer(&w);
 
    w.build();
-   w.vp.set_sampler(new Regular(16));
+   w.vp.set_sampler(new Regular(1));
    w.render_scene();
-   renderer.export_image("Render2_Regular.tga");
-   w.vp.set_sampler(new Jittered(16));
-   w.render_scene();
-   renderer.export_image("Render2_Jittered.tga");
-   
+   renderer.export_image("Render2_MJittered.png");
    return 0;
 }

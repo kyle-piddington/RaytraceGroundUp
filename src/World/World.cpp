@@ -36,7 +36,7 @@ void World::render_scene(void) const
    ray.d = Vector3D(0,0,-1);
    for(int r = 0; r < vp.vRes; r++)
    {
-      for(int c = 0; c <= vp.hRes; c++)
+      for(int c = 0; c < vp.hRes; c++)
       {
          pixel_color = black;
          for(int j = 0; j < vp.get_num_samples(); j++)
