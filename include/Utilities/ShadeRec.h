@@ -27,10 +27,10 @@ class ShadeRec {
 		Ray					ray;				// Required for specular highlights and area lights
 		int					depth;				// recursion depth
 		float				t;					// ray parameter
-		World&				w;					// World reference
+		const World&				w;					// World reference
 		RGBColor            color;
 				
-		ShadeRec(World& wr);					// constructor
+		ShadeRec(const World& wr);					// constructor
 		
 		ShadeRec(const ShadeRec& sr);			// copy constructor
 };

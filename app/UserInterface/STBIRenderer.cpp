@@ -16,6 +16,7 @@ STBIRenderer::~STBIRenderer()
 void STBIRenderer::set_pixel(int x, int y, int r, int g, int b)
 {
    assert(x < this->width && y < this->height && x >= 0 && y >= 0);
+   y = (this->height - 1) - y;
    pixels[3*(y*width + x)    ] = r;
    pixels[3*(y*width + x) + 1] = g;
    pixels[3*(y*width + x) + 2] = b;

@@ -16,8 +16,8 @@ int main(int argc, char * argv[])
    STBIRenderer renderer(&w);
 
    w.build();
-   w.vp.set_sampler(new MultiJittered(256));
+   w.vp.set_sampler(new MultiJittered(16));
    w.render_scene();
-   renderer.export_image("Render2_Jitterd.png");
+   renderer.export_image("Render3.png");
    return 0;
 }

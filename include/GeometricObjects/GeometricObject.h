@@ -23,6 +23,10 @@ public:
 
    void set_color(const RGBColor & color);
 
+   void set_color(float r, float g, float b);
+
+   RGBColor get_color() const;
+
 protected:
    RGBColor color; //Will be replaced with a material later.
 

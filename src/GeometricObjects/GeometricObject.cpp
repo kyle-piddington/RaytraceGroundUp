@@ -31,3 +31,13 @@ void GeometricObject::set_color(const RGBColor & color)
 {
    this->color = color;
 }
+
+void GeometricObject::set_color(float r, float g, float b)
+{
+   this->color = RGBColor(r,g,b);
+}
+
+RGBColor GeometricObject::get_color() const
+{
+   return color;
+}

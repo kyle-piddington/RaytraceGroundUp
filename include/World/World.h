@@ -2,7 +2,8 @@
 #define __WORLD_H__
 #include "World/ViewPlane.h"
 #include "Utilities/RGBColor.h"
-#include "GeometricObjects/Sphere.h"
+#include "GeometricObjects/GeometricObject.h"
+#include "Utilities/ShadeRec.h"
 #include "Tracers/Tracer.h"
 
 /**
@@ -19,9 +20,11 @@ private:
 public:
    ViewPlane vp;
    RGBColor background_color;
-   Sphere sphere;
+   
    Tracer * tracer_ptr;
    RenderInterface * paintArea; 
+
+   std::vector<GeometricObject *> objects;
 
    World();
 
@@ -46,7 +49,12 @@ public:
                       const int col,
                       const RGBColor & pixel_color) const;
 
-   
+    /**
+     * Add an object to this world
+     */
+    inline void add_object(GeometricObject * obj);
+
+    ShadeRec hit_bare_bones_objects(const Ray& ray) const;
 
 };
 #endif

@@ -1,6 +1,6 @@
 #include "GeometricObjects/Sphere.h"
 #include <math.h>
-
+#include <iostream>
 const double Sphere::kEpsilon =  0.001;
 Sphere::Sphere(void):
    GeometricObject()

@@ -2,8 +2,10 @@
 #include <iostream>
 ViewPlane::ViewPlane() :
 sampler_ptr(nullptr)
-{
 
+{
+   set_gamma(1.0);
+   set_pixel_size(1.0);
 }
 ViewPlane::~ViewPlane()
 {

@@ -28,7 +28,7 @@ protected:
    int num_samples; //Samples per pattern
    int num_sets; //patterns in sampler
    std::vector<Point2D> samples; //Samples in the square
-   std::vector<int> shuffed_indices; // Number of indicies
+   std::vector<int> shuffled_indices; // Number of indicies
    unsigned long count; // Number of sample points used
    int jump;
 
