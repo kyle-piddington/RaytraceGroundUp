@@ -1,6 +1,7 @@
 #include "Tracers/MultipleObjects.h"
 #include "GeometricObjects/Plane.h"
 #include "GeometricObjects/Sphere.h"
+#include "Cameras/OrthographicCamera.h"
 void World::build()
 {
    vp.set_hRes(200);
@@ -23,4 +24,13 @@ void World::build()
    Plane * plane_ptr(new Plane(Point3D(0,0,0), Normal(0,1,1)));
    plane_ptr->set_color(0.0,0.3,0.0);
    add_object(plane_ptr);
+
+   //Camera:
+   camera_ptr = new OrthographicCamera;
+   camera_ptr->set_eye(0,0,100);
+   camera_ptr->set_lookat(0,0,0);
+   camera_ptr->compute_uvw();
+
+   
+
 }

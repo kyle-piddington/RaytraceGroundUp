@@ -12,7 +12,7 @@
  */
 
 class RenderInterface;
-
+class Camera;
 class World{
 private:
 
@@ -20,11 +20,12 @@ private:
 public:
    ViewPlane vp;
    RGBColor background_color;
-   
+   RenderInterface * paintArea;    
    Tracer * tracer_ptr;
-   RenderInterface * paintArea; 
+   Camera * camera_ptr;
 
    std::vector<GeometricObject *> objects;
+
 
    World();
 
