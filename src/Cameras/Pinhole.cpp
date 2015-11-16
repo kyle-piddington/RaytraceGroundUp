@@ -1,7 +1,15 @@
-#include "Cameras/OrthographicCamera.h"
+#include "Cameras/Pinhole.h"
+
+
 #include "Utilities/Constants.h"
 #include <iostream>
-void OrthographicCamera::render_scene(World & w)
+Pinhole::Pinhole() :
+d(40),
+zoom(1.0)
+{
+
+}
+void Pinhole::render_scene(World & w)
 {
    this->compute_uvw();
 
@@ -9,7 +17,8 @@ void OrthographicCamera::render_scene(World & w)
    ViewPlane & vp = w.vp;
    Ray ray;
    Point2D sp, pp;
-   ray.d =  -this->w;
+   vp.s /= zoom;
+   ray.o = this->eye;
    for(int r = 0; r < vp.vRes; r++)
    {
       for(int c = 0; c < vp.hRes; c++)
@@ -21,9 +30,8 @@ void OrthographicCamera::render_scene(World & w)
             pp.x  = vp.s * (c - 0.5 * (vp.hRes - 1.0) + sp.x); // Get the X position in the world 
             pp.y  = vp.s * (r - 0.5 * (vp.vRes - 1.0) + sp.y);
             //std::cout << "Tracing at " << sp.x << "," << sp.y << std::endl;
-            ray.o = Point3D(0,0,eye.z) + 
-                    (u  * pp.x) + 
-                    (v  * pp.y);
+            ray.d = ray_direction(pp);
+
 
             pixel_color += w.tracer_ptr->trace_ray(ray);
          }
@@ -33,6 +41,20 @@ void OrthographicCamera::render_scene(World & w)
          
       }
    }
+}
 
-   
+Vector3D Pinhole::ray_direction(const Point2D & p) const
+{
+   Vector3D dir = p.x * u + p.y * v - d*w;
+   dir.normalize();
+   return dir;
+}
+
+void Pinhole::set_view_distance(float d)
+{
+   this->d = d;
+}
+void Pinhole::set_zoom(float z)
+{
+   this->zoom = z;
 }

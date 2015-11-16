@@ -13,7 +13,7 @@ STBIRenderer::~STBIRenderer()
    if(pixels != nullptr)
       delete pixels;
 }
-void STBIRenderer::set_pixel(int x, int y, int r, int g, int b)
+void STBIRenderer::set_pixel(int y, int x, int r, int g, int b)
 {
    assert(x < this->width && y < this->height && x >= 0 && y >= 0);
    y = (this->height - 1) - y;

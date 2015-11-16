@@ -21,6 +21,6 @@ int main(int argc, char * argv[])
    w.vp.set_sampler(new MultiJittered(16));
    w.open_window(w.vp.hRes,w.vp.vRes);
    w.camera_ptr->render_scene(w);
-   renderer.export_image("RenderCamera.png");
+   renderer.export_image("RenderCameraPinhole.png");
    return 0;
 }

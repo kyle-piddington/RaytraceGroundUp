@@ -2,6 +2,7 @@
 #include "GeometricObjects/Plane.h"
 #include "GeometricObjects/Sphere.h"
 #include "Cameras/OrthographicCamera.h"
+#include "Cameras/Pinhole.h"
 void World::build()
 {
    vp.set_hRes(200);
@@ -26,7 +27,7 @@ void World::build()
    add_object(plane_ptr);
 
    //Camera:
-   camera_ptr = new OrthographicCamera;
+   camera_ptr = new Pinhole;
    camera_ptr->set_eye(0,0,100);
    camera_ptr->set_lookat(0,0,0);
    camera_ptr->compute_uvw();
