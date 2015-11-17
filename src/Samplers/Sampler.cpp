@@ -7,7 +7,21 @@ Sampler::Sampler(int num_samples, int num_sets) :
    num_sets(num_sets),
    initializedSamples(false)
 {
+
 }
+Sampler::Sampler(const Sampler & other):
+   num_samples(other.num_samples),
+   num_sets(other.num_sets),
+   samples(other.samples),
+   shuffled_indices(other.shuffled_indices),
+   count(other.count),
+   jump(other.jump),
+   initializedSamples(other.initializedSamples)
+{
+
+}
+
+
 
 Sampler::~Sampler()
 {

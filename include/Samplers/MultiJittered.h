@@ -5,6 +5,10 @@ class MultiJittered : public Sampler
 {
 public:
    MultiJittered(int num_samples);
+   MultiJittered(const MultiJittered & other);
+
+   Sampler * clone() const;
+
    ~MultiJittered();
 private:
    virtual void generate_samples();

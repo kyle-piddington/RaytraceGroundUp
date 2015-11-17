@@ -4,7 +4,7 @@
 #include "Utilities/Constants.h"
 #include <iostream>
 Pinhole::Pinhole() :
-d(40),
+d(400),
 zoom(1.0)
 {
 

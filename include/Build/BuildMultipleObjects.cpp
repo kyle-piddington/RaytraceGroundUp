@@ -13,12 +13,12 @@ void World::build()
    tracer_ptr = new MultipleObjects(this);
 
    Sphere * sphere_ptr = new Sphere();
-   sphere_ptr->set_center(0,-25,0);
+   sphere_ptr->set_center(80,-25,0);
    sphere_ptr->set_radius(80);
    sphere_ptr->set_color(1,0,0);
    add_object(sphere_ptr);
 
-   sphere_ptr = new Sphere(Point3D(0,30,0),60);
+   sphere_ptr = new Sphere(Point3D(-60,30,0),60);
    sphere_ptr->set_color(1,1,0);
    add_object(sphere_ptr);
 
@@ -28,7 +28,7 @@ void World::build()
 
    //Camera:
    camera_ptr = new Pinhole;
-   camera_ptr->set_eye(0,0,100);
+   camera_ptr->set_eye(0,0,600);
    camera_ptr->set_lookat(0,0,0);
    camera_ptr->compute_uvw();
 

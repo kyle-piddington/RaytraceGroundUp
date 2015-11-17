@@ -7,6 +7,11 @@ class Sampler
 {
 public:
    Sampler(int num_samples, int num_sets = DEFAULT_NUM_SETS);
+
+   Sampler(const Sampler & other);
+
+   virtual Sampler * clone() const = 0;
+
    virtual ~Sampler();
 
 

@@ -8,6 +8,17 @@ Sampler(num_samples)
 
 }
 
+MultiJittered::MultiJittered(const MultiJittered & other):
+Sampler(other)
+{
+
+}
+
+Sampler * MultiJittered::clone() const
+{
+   return new MultiJittered(*this);
+}
+
 MultiJittered::~MultiJittered()
 {
 
