@@ -6,6 +6,7 @@
 #include "Utilities/Vector3D.h"
 class BRDF
 {
+public:
    /**
     * Construct a new BRDF
     * Default sampler is Multijittered wiht 16 samples
@@ -16,6 +17,9 @@ class BRDF
 
    BRDF(const BRDF & other);
 
+   BRDF&
+      operator= (const BRDF& rhs);
+
    virtual BRDF*
       clone(void) const = 0;
 
@@ -24,6 +28,7 @@ class BRDF
    virtual RGBColor f(const ShadeRec  &sr, const Vector3D & wi, const Vector3D & wo) const = 0;
 
    virtual RGBColor sample_f(const ShadeRec & sr, const Vector3D & wi, const Vector3D & wo) const = 0;
+
 
    /**
     * Bihemispherical reflectance (ambient)

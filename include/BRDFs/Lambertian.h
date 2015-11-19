@@ -3,13 +3,16 @@
 #include "BRDFs/BRDF.h"
 class Lambertian : public BRDF
 {
+public:
    Lambertian();
 
-   Lambertian(Sampler * sampler_ptr);
+   Lambertian(Sampler * sampler_ptr, float kd, const RGBColor & cd);
 
    Lambertian(const Lambertian & other);
 
    virtual BRDF * clone() const;
+
+   Lambertian & operator=(const Lambertian & rhs);
 
    ~Lambertian();
 
@@ -21,9 +24,10 @@ class Lambertian : public BRDF
     * Bihemispherical reflectance (ambient)
     * @return [description]
     */
-   virtual RGBColor rho(const ShadeRec& sr, const Vector3D & wo);
+   virtual RGBColor rho(const ShadeRec& sr, const Vector3D & wo) const;
 
-virtual RGBCo
-
+private:
+   float kd;
+   RGBColor cd;
 };
 #endif
