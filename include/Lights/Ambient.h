@@ -29,9 +29,9 @@ public:
    void
    set_color(const float r, const float g, const float b);
 
-   Vector3D get_direction(ShadeRec & sr);
+   Vector3D get_direction(ShadeRec & sr) const;
 
-   RGBColor L(ShadeRec & sr);
+   RGBColor L(const ShadeRec & sr) const;
 private:
    float ls;
    RGBColor color;

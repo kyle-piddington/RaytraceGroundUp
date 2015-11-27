@@ -54,11 +54,11 @@ void Ambient::set_color(const float r, const float g, const float b)
    this->color = RGBColor(r,g,b);
 }
 
-Vector3D Ambient::get_direction(ShadeRec & sr)
+Vector3D Ambient::get_direction(ShadeRec & sr) const
 {
    return Vector3D(0.0);
 }
-RGBColor Ambient::L(ShadeRec & sr){
+RGBColor Ambient::L(const ShadeRec & sr) const{
    return ls * color;
 }
 

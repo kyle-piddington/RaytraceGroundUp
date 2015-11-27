@@ -13,13 +13,15 @@ public:
 
    PointLight & operator=(const PointLight & other);
 
-   virtual Vector3D get_direction(ShadeRec & sr);
+   virtual Vector3D get_direction(ShadeRec & sr) const;
 
-   virtual RGBColor L(ShadeRec & sr);
+   virtual RGBColor L(const ShadeRec & sr) const;
 
    void set_location(const Vector3D & loc);
 
    void set_location(const float x, const float y, const float z);
+
+   void set_location(const float a);
 
 
    void scale_radiance(const float b);

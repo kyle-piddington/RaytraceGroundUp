@@ -32,8 +32,8 @@ public:
    virtual Light* clone(void) const = 0;
 
 
-   virtual Vector3D get_direction(ShadeRec & sr) = 0;
-   virtual RGBColor L(ShadeRec & sr) = 0;
+   virtual Vector3D get_direction(ShadeRec & sr) const = 0;
+   virtual RGBColor L(const ShadeRec & sr) const = 0;
 
 protected:
    bool shadows;
