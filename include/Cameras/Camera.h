@@ -8,7 +8,7 @@ class Camera
 public:
    Camera();
    Camera(Point3D eye, Point3D lookAt);
-   
+   virtual ~Camera();
    void set_eye(Point3D eye);
    
    void set_eye(float x, float y, float z);

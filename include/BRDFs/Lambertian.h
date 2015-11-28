@@ -10,11 +10,16 @@ public:
 
    Lambertian(const Lambertian & other);
 
-   virtual BRDF * clone() const;
+   virtual ~Lambertian();
+
+   
+   virtual Lambertian * clone() const;
 
    Lambertian & operator=(const Lambertian & rhs);
 
-   ~Lambertian();
+   void set_kd(float kd);
+
+   void set_cd(const RGBColor & c);
 
     virtual RGBColor f(const ShadeRec  &sr, const Vector3D & wi, const Vector3D & wo) const;
 

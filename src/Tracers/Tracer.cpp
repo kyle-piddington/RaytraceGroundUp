@@ -10,7 +10,23 @@ Tracer::Tracer(World * w_ptr)
    {
 
    }
+
+Tracer::~Tracer()
+{
+   if(world_ptr)
+   {
+      world_ptr = nullptr;
+   }
+}
 RGBColor Tracer::trace_ray(const Ray& ray) const
+{
+   return (black);
+}
+RGBColor Tracer::trace_ray(const Ray& ray, const int depth) const
+{
+   return (black);
+}
+RGBColor Tracer::trace_ray(const Ray& ray, float & tMin, const int depth) const
 {
    return (black);
 }

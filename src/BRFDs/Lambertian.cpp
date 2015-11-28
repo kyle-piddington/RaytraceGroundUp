@@ -24,24 +24,39 @@ Lambertian::Lambertian(const Lambertian & other):
 
 }
 
-BRDF * Lambertian::clone() const
+Lambertian::~Lambertian()
 {
+
+}
+Lambertian * Lambertian::clone() const
+{
+
    return new Lambertian(*this);
 }
 
 Lambertian & Lambertian::operator=(const Lambertian & rhs)
 {
+
    if(&rhs == this)
       return *this;
    if(sampler_ptr)
       delete sampler_ptr;
-   
+   if(this->sampler_ptr)
+      delete sampler_ptr;
    this->sampler_ptr = rhs.sampler_ptr->clone();
    this->kd = rhs.kd;
    this->cd = rhs.cd;
    return *this;
 }
 
+void Lambertian::set_kd(float k)
+{
+   this->kd = k;
+}
+void Lambertian::set_cd(const RGBColor & cd)
+{
+   this->cd =cd;
+}
 //Light scatters evenly for all input and output angles
 RGBColor Lambertian::f(const ShadeRec & sr, const Vector3D & wi, const Vector3D & wo) const
 {
@@ -50,4 +65,10 @@ RGBColor Lambertian::f(const ShadeRec & sr, const Vector3D & wi, const Vector3D 
 
 RGBColor Lambertian::rho(const ShadeRec & sr, const Vector3D& wo) const {
    return kd * cd;
+}
+
+//@TODO complete this function in Chapter 26
+RGBColor Lambertian::sample_f(const ShadeRec & sr, const Vector3D & wi, const Vector3D & w) const
+{
+   return black;
 }

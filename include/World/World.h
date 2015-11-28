@@ -5,6 +5,8 @@
 #include "GeometricObjects/GeometricObject.h"
 #include "Utilities/ShadeRec.h"
 #include "Tracers/Tracer.h"
+#include "Lights/Light.h"
+#include "Lights/Ambient.h"
 
 /**
  * A world contains geometric objects, and 
@@ -23,8 +25,9 @@ public:
    RenderInterface * paintArea;    
    Tracer * tracer_ptr;
    Camera * camera_ptr;
-
+   Light * ambient_ptr;
    std::vector<GeometricObject *> objects;
+   std::vector<Light *> lights;
 
 
    World();
@@ -55,7 +58,16 @@ public:
      */
     inline void add_object(GeometricObject * obj);
 
-    ShadeRec hit_bare_bones_objects(const Ray& ray) const;
+    /**
+     * Add a light to this world
+     */
+    inline void add_light(Light * light);
 
+    inline void set_ambient_light(Ambient * ambient);
+
+    inline void set_camera(Camera * cam);
+
+    ShadeRec hit_bare_bones_objects(const Ray& ray) const;
+    ShadeRec hit_objects(const Ray & ray) const;
 };
 #endif

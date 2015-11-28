@@ -23,7 +23,7 @@ public:
    virtual BRDF*
       clone(void) const = 0;
 
-   ~BRDF(void);
+   virtual ~BRDF(void);
 
    virtual RGBColor f(const ShadeRec  &sr, const Vector3D & wi, const Vector3D & wo) const = 0;
 

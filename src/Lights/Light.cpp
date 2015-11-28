@@ -10,7 +10,10 @@ Light::Light(const Light & ls):
 {
 
 }
-
+Light::~Light()
+{
+   
+}
 Light& Light::operator = (const Light & rhs)
 {
    this->shadows = rhs.shadows;

@@ -69,4 +69,12 @@ int Sampler::get_num_samples() const
    return num_samples;
 }
 
+void Sampler::set_num_samples(const int num_samples)
+{
+   this->num_samples = num_samples;
+   samples.clear();
+   shuffled_indices.clear();
+   initializedSamples = false;
+   count = 0;
+}
 

@@ -16,6 +16,7 @@ public:
     */
    Light(const Light& ls);
 
+   virtual ~Light();
    /**
     * Copy constructor
     */

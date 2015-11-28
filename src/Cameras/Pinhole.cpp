@@ -9,6 +9,10 @@ zoom(1.0)
 {
 
 }
+Pinhole::~Pinhole()
+{
+   
+}
 void Pinhole::render_scene(World & w)
 {
    this->compute_uvw();
@@ -33,7 +37,7 @@ void Pinhole::render_scene(World & w)
             ray.d = ray_direction(pp);
 
 
-            pixel_color += w.tracer_ptr->trace_ray(ray);
+            pixel_color += w.tracer_ptr->trace_ray(ray,0);
          }
          pixel_color /= vp.get_num_samples();
          w.display_pixel(r,c,pixel_color);

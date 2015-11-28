@@ -14,6 +14,10 @@ up(0,1,0)
 {
    compute_uvw();
 }
+Camera::~Camera()
+{
+   
+}
 
 void Camera::set_eye(Point3D eye)
 {

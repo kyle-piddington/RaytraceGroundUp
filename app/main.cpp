@@ -18,9 +18,8 @@ int main(int argc, char * argv[])
    STBIRenderer renderer(&w);
 
    w.build();
-   w.vp.set_sampler(new MultiJittered(16));
    w.open_window(w.vp.hRes,w.vp.vRes);
    w.camera_ptr->render_scene(w);
-   renderer.export_image("RenderCameraPinhole.png");
+   renderer.export_image("RenderShaded.png");
    return 0;
 }

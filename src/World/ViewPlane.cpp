@@ -1,7 +1,9 @@
 #include "World/ViewPlane.h"
 #include <iostream>
+#include <Samplers/MultiJittered.h>
+
 ViewPlane::ViewPlane() :
-sampler_ptr(nullptr)
+sampler_ptr(new MultiJittered(16))
 
 {
    set_gamma(1.0);
@@ -40,6 +42,7 @@ int ViewPlane::get_num_samples() const
    return sampler_ptr->get_num_samples();
 }
 
+
 void ViewPlane::set_sampler(Sampler * sp)
 {
    if(sampler_ptr != nullptr)
@@ -54,4 +57,8 @@ void ViewPlane::set_sampler(Sampler * sp)
 Sampler * ViewPlane::get_sampler_ptr() const
 {
    return sampler_ptr;
+}
+void ViewPlane::set_samples(const int n)
+{
+   sampler_ptr->set_num_samples(n);
 }

@@ -26,6 +26,9 @@ public:
 
    int get_num_samples() const;
 
+   void set_num_samples() const;
+
+   void set_num_samples(const int num_samples);
    //Get the next point in the sampler
    Point2D sample_unit_square();
 protected:
