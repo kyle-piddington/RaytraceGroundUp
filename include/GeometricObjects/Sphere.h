@@ -15,7 +15,7 @@ public:
 
    virtual ~Sphere(void);
 
-   Sphere & operator= (const Sphere & sphere);
+   virtual Sphere & operator= (const Sphere & sphere);
 
 
    void set_center(const Point3D & c);

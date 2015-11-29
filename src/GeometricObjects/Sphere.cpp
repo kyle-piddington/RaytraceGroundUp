@@ -76,3 +76,15 @@ bool Sphere::hit(const Ray & ray, double & tmin, ShadeRec& sr) const
    }
    return false;
 }
+Sphere & Sphere::operator= (const Sphere & rhs)
+{
+   if(&rhs == this)
+      return *this;
+   GeometricObject::operator= (rhs);
+
+   center 	= rhs.center;
+   radius	= rhs.radius;
+
+   return (*this);
+
+}

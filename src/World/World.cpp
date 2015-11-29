@@ -21,7 +21,7 @@ World::World():
    ambient_ptr(new Ambient)
 {
    //@TODO find out what's getting not copied correctly
-   objects.reserve(100);
+   //objects.reserve(100);
 }
 
 
@@ -40,6 +40,7 @@ void World::open_window(const int vRes, const int hRes) const
 inline void World::add_object(GeometricObject * obj)
 {
    objects.push_back(obj);
+//   objects.reserve(objects.size() + 1);
 }
 
 inline void World::add_light(Light * l)

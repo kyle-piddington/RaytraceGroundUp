@@ -16,7 +16,7 @@ Ambient::Ambient(const Ambient & a):
 
 }
 
-Light * Ambient::clone(void) const
+Ambient * Ambient::clone(void) const
 {
    return new Ambient(*this);
 }

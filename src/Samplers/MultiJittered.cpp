@@ -14,7 +14,7 @@ Sampler(other)
 
 }
 
-Sampler * MultiJittered::clone() const
+MultiJittered * MultiJittered::clone() const
 {
    return new MultiJittered(*this);
 }

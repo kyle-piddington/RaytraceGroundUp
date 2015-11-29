@@ -9,7 +9,7 @@ public:
 
    PointLight(const PointLight & other);
 
-   virtual Light * clone(void) const;
+   virtual PointLight * clone(void) const;
 
    PointLight & operator=(const PointLight & other);
 

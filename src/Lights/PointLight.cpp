@@ -17,7 +17,7 @@ PointLight::PointLight(const PointLight & other):
 
 }
 
-Light * PointLight::clone() const
+PointLight * PointLight::clone() const
 {
    return new PointLight(*this);
 }

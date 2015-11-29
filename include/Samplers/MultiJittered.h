@@ -7,7 +7,7 @@ public:
    MultiJittered(int num_samples);
    MultiJittered(const MultiJittered & other);
 
-   Sampler * clone() const;
+   MultiJittered * clone() const;
 
    ~MultiJittered();
 private:

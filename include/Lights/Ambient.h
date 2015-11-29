@@ -8,7 +8,7 @@ public:
 
    Ambient(const Ambient& a);
 
-   virtual Light*
+   virtual Ambient*
    clone(void) const;
 
    Ambient&

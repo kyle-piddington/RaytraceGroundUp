@@ -14,8 +14,7 @@ public:
 
    GeometricObject(const GeometricObject & object);
 
-   virtual GeometricObject * clone(void) const = 0;
-   
+
    virtual ~GeometricObject();
 
    virtual bool hit(const Ray& ray, double & tmin, ShadeRec & sr) const = 0;
@@ -34,6 +33,6 @@ public:
 protected:
    RGBColor color; //Will be replaced with a material later.
    Material * material;
-   GeometricObject & operator= (const GeometricObject & rhs);
+   virtual GeometricObject & operator= (const GeometricObject & rhs);
 };
 #endif
